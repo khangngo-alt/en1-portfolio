@@ -58,6 +58,15 @@ Before making changes:
 3. Reuse the patterns already present.
 4. Make the smallest set of changes needed to accomplish the request.
 
+For tool usage and repository changes, ask for explicit approval before any
+non-trivial action that is not required to complete the request, especially:
+
+- installing packages or changing the environment
+- creating, deleting, renaming, or moving files beyond the requested scope
+- running Git commands such as commit, push, branch changes, or history rewrite
+- launching broad or exploratory tasks that are not necessary to the specific
+  portfolio edit
+
 Prefer adapting existing HTML and CSS over creating new structures.
 
 Do not redesign, reorganize, refactor, or "modernize" the site unless the
