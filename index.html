@@ -151,6 +151,8 @@
                 trail.style.strokeDashoffset = String(trailLength);
             });
 
+            flightPlane.setAttribute('transform', 'translate(120 120) rotate(-15) scale(1)');
+
             const updateFlightPosition = () => {
                 const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
                 const rawProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
