@@ -136,6 +136,11 @@
     <script>
         const flightPlane = document.querySelector('.flight-plane');
         const flightTrails = document.querySelectorAll('.flight-trail');
+        const flightScene = document.querySelector('.flight-scene');
+
+        if (flightScene) {
+            flightScene.style.opacity = '1';
+        }
 
         if (flightPlane && flightTrails.length) {
             const trailPath = flightTrails[0];
