@@ -42,17 +42,6 @@
 
         </div>
 
-        <div class="flight-scene" aria-hidden="true">
-            <svg viewBox="0 0 900 1200" preserveAspectRatio="xMidYMid meet">
-                <path class="flight-trail glow" d="M 120 120 C 260 210, 330 300, 500 520 S 760 880, 820 1080"></path>
-                <path class="flight-trail main" d="M 120 120 C 260 210, 330 300, 500 520 S 760 880, 820 1080"></path>
-                <g class="flight-plane">
-                    <path d="M0 0 L70 20 L30 0 L70 -20 L0 0 Z" fill="rgba(255,255,255,0.96)"></path>
-                    <path d="M0 0 L-14 18 L0 0 L-14 -18 Z" fill="rgba(224,166,106,1)"></path>
-                    <path d="M12 0 L38 12 L18 0 L38 -12 Z" fill="rgba(255,255,255,0.7)"></path>
-                </g>
-            </svg>
-        </div>
     </section>
 
     <!-- Portfolio Section -->
@@ -133,47 +122,6 @@
 
     </section>
 
-    <script>
-        const flightPlane = document.querySelector('.flight-plane');
-        const flightTrails = document.querySelectorAll('.flight-trail');
-        const flightScene = document.querySelector('.flight-scene');
-
-        if (flightScene) {
-            flightScene.style.opacity = '1';
-        }
-
-        if (flightPlane && flightTrails.length) {
-            const trailPath = flightTrails[0];
-            const trailLength = trailPath.getTotalLength();
-
-            flightTrails.forEach((trail) => {
-                trail.style.strokeDasharray = String(trailLength);
-                trail.style.strokeDashoffset = String(trailLength);
-            });
-
-            flightPlane.setAttribute('transform', 'translate(120 120) rotate(-15) scale(1)');
-
-            const updateFlightPosition = () => {
-                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-                const rawProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-                const progress = Math.min(1, Math.max(0, rawProgress));
-
-                const point = trailPath.getPointAtLength(progress * trailLength);
-                const nextPoint = trailPath.getPointAtLength(Math.min(trailLength, progress * trailLength + 6));
-                const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) * 180 / Math.PI;
-
-                flightTrails.forEach((trail) => {
-                    trail.style.strokeDashoffset = String(trailLength * (1 - progress));
-                });
-
-                flightPlane.setAttribute('transform', `translate(${point.x} ${point.y}) rotate(${angle}) scale(${0.9 + progress * 0.5})`);
-            };
-
-            updateFlightPosition();
-            window.addEventListener('scroll', () => requestAnimationFrame(updateFlightPosition), { passive: true });
-            window.addEventListener('resize', updateFlightPosition);
-        }
-    </script>
     
 </body>
 </html>
