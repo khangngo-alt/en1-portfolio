@@ -9,7 +9,7 @@ body {
     --color-bg-overlay: #717378;
     --color-text-on-dark: #ffffff;
     background-color: var(--color-primary);
-    font-family: var(--font-body);
+    font-family: "IBM Plex Sans", Arial, sans-serif;
     margin: 20px;
     overflow-x: hidden;
 }
@@ -39,6 +39,7 @@ body {
     text-align: left;
     font-size: 1.5em;
     color: #ffffff;
+    font-family: "IBM Plex Mono", monospace;
 }
 
 .header .navbar {
@@ -46,15 +47,16 @@ body {
     gap: 15px;
     font-size: 1.5em;
     padding: 4px 6px;
-    border: 1px solid #ffffff;
+    border: 1px solid #717378;
     border-radius: var(--radius);
-    background: #717378;
+    background: #d8dce0;
 }
 
 .header .navbar a {
     text-decoration: none;
-    color: #ffffff;
+    color: #41464c;
     padding: 10px;
+    font-family: "IBM Plex Mono", monospace;
 }
 
 /* ************************** */
@@ -84,7 +86,7 @@ body {
     position: relative;
     width: fit-content;
     max-width: 100%;
-    font-family: "Times New Roman", Times, serif;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
     color: #ffffff;
     font-size: 56px;
     font-weight: 700;
@@ -96,7 +98,7 @@ body {
 
 .home-content p {
     position: relative;
-    font-family: "Times New Roman", Times, serif;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
     color: #ffffff;
     font-size: 1.5em;
     margin: 20px 0 40px;
@@ -124,6 +126,7 @@ body {
     color: #ffffff;
     text-decoration: none;
     font-size: 1.1em;
+    font-family: "IBM Plex Mono", monospace;
 }
 
 .social-link:hover {
