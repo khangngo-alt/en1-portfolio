@@ -44,6 +44,10 @@ body {
     display: flex;
     gap: 15px;
     font-size: 1.5em;
+    padding: 4px 6px;
+    border: 1px solid #2d2420;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.94);
 }
 
 .header .navbar a {
@@ -58,9 +62,12 @@ body {
 
 .home {
     position: relative;
-    min-height: 100vh;
+    box-sizing: border-box;
+    width: calc(100% + 40px);
+    min-height: calc(100vh + 40px);
     display: flex;
     align-items: center;
+    margin: -20px;
     padding: 6rem 10% 2rem;
     color: var(--color-text-on-dark);
     isolation: isolate;
@@ -74,6 +81,8 @@ body {
 
 .home-content h1 {
     position: relative;
+    width: fit-content;
+    max-width: 100%;
     font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
@@ -141,7 +150,8 @@ body {
 .project-card {
     padding: 5px;
     margin: 5px;
-    background-color: var(--color-accent);
+    border: 1px solid #c5c9ce;
+    background-color: #d8dce0;
     border-radius: var(--radius);
     text-align: center;
 }
