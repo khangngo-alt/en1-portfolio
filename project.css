@@ -57,6 +57,23 @@ body {
     border-radius: var(--radius);
 }
 
+.proj-wide-gallery {
+    max-width: 1160px;
+}
+
+.proj-wide-gallery .proj-desc {
+    max-width: var(--container-max);
+    margin: 20px auto;
+}
+
+.proj-wide-gallery .proj-video-container {
+    max-width: var(--container-max);
+    aspect-ratio: 16 / 9;
+    padding-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .proj-header {
     text-align: center;
     color: var(--color-primary);
@@ -104,15 +121,15 @@ pre code, pre code {
 /* work-in-progress or detail photos beyond the one hero image.       */
 .proj-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
     gap: 10px;
     margin: 20px 0;
 }
 
 .proj-gallery img {
     width: 100%;
-    height: 150px;
-    object-fit: contain;
+    height: auto;
     border-radius: var(--radius);
 }
 
@@ -165,8 +182,4 @@ pre code, pre code {
         font-size: 1.3em;
     }
 
-    .proj-gallery img {
-        height: 120px;
-        object-fit: contain;
-    }
 }
