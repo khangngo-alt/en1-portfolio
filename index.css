@@ -5,6 +5,9 @@ html {
 }
 
 body {
+    --color-primary: #ffffff;
+    --color-bg-overlay: rgba(255, 255, 255, 0.88);
+    --color-text-on-dark: #2d2420;
     background-color: var(--color-primary);
     font-family: var(--font-body);
     margin: 20px;
