@@ -23,7 +23,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 8px;
-    color: var(--color-primary);
+    color: var(--color-project-text);
     border-radius: var(--radius);
 }
 
@@ -40,7 +40,7 @@ body {
 
 .header .navbar a {
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-project-text);
     padding: 10px;
 }
 
@@ -76,7 +76,7 @@ body {
 
 .proj-header {
     text-align: center;
-    color: var(--color-primary);
+    color: var(--color-project-text);
 }
 
 .proj-img-container {
@@ -96,7 +96,7 @@ body {
 }
 
 .proj-desc p {
-    color: var(--color-text);
+    color: var(--color-project-text);
 }
 
 /* Optional block: a labeled code sample. Delete this block on pages   */

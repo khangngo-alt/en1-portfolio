@@ -15,6 +15,7 @@
     --color-accent-dark: #c98a49;   /* darker orange: hover states */
 
     /* Text */
+    --color-project-text: #343a40; /* dark space gray for activity/project pages */
     --color-text: #2d2420;          /* main body text */
     --color-text-muted: #4d3a2c;    /* secondary text, links on light bg */
     --color-text-on-dark: #ffffff;  /* text placed over photos/dark overlays */
