@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1200" role="img" aria-labelledby="title description">
+    <title id="title">Programming with Sensors: color sensor motor code</title>
+    <desc id="description">Python code that changes the direction of two motors based on the color detected by a color sensor.</desc>
+    <rect width="1400" height="1200" rx="24" fill="#101820"/>
+    <text x="64" y="76" fill="#a6e3a1" font-family="monospace" font-size="30" font-weight="bold">Activity 4: Programming with Sensors</text>
+    <text x="64" y="112" fill="#bac2de" font-family="monospace" font-size="18">Color input sensor coding</text>
+    <path d="M64 136H1336" stroke="#45475a" stroke-width="2"/>
+    <text x="64" y="174" fill="#cdd6f4" font-family="monospace" font-size="18" xml:space="preserve">
+        <tspan x="64" dy="0"># Setup: large motor on port F, medium motor on port E,</tspan>
+        <tspan x="64" dy="24"># and Color Sensor on port D.</tspan>
+        <tspan x="64" dy="24">from hub import port</tspan>
+        <tspan x="64" dy="24">import runloop</tspan>
+        <tspan x="64" dy="24">import motor</tspan>
+        <tspan x="64" dy="24">import color</tspan>
+        <tspan x="64" dy="24">import color_sensor</tspan>
+        <tspan x="64" dy="24">MOTOR_SPEED = 300 # Speed in degrees per second.</tspan>
+        <tspan x="64" dy="24">async def main():</tspan>
+        <tspan x="64" dy="24">    # Start both motors spinning forward.</tspan>
+        <tspan x="64" dy="24">    motor.run(port.F, MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">    motor.run(port.E, MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">    # Remember the last color so commands are sent only when it changes.</tspan>
+        <tspan x="64" dy="24">    last_color = color.UNKNOWN</tspan>
+        <tspan x="64" dy="24">    # Keep checking the Color Sensor.</tspan>
+        <tspan x="64" dy="24">    while True:</tspan>
+        <tspan x="64" dy="24">        detected_color = color_sensor.color(port.D)</tspan>
+        <tspan x="64" dy="24">        # Change motor directions only when a new color appears.</tspan>
+        <tspan x="64" dy="24">        if detected_color != last_color:</tspan>
+        <tspan x="64" dy="24">            if detected_color == color.GREEN:</tspan>
+        <tspan x="64" dy="24">                motor.run(port.F, MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">                motor.run(port.E, MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">            elif detected_color == color.YELLOW:</tspan>
+        <tspan x="64" dy="24">                motor.run(port.F, MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">                motor.run(port.E, -MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">            elif detected_color == color.RED:</tspan>
+        <tspan x="64" dy="24">                motor.run(port.F, -MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">                motor.run(port.E, MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">            elif detected_color == color.BLACK:</tspan>
+        <tspan x="64" dy="24">                motor.run(port.F, -MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">                motor.run(port.E, -MOTOR_SPEED)</tspan>
+        <tspan x="64" dy="24">            # Remember the reading, including when the block is removed.</tspan>
+        <tspan x="64" dy="24">            last_color = detected_color</tspan>
+        <tspan x="64" dy="24">        # Give the sensor time before checking again.</tspan>
+        <tspan x="64" dy="24">        await runloop.sleep_ms(100)</tspan>
+        <tspan x="64" dy="24">runloop.run(main())</tspan>
+    </text>
+</svg>
