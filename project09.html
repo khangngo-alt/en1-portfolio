@@ -27,6 +27,51 @@
             <p>Add your design, build process, testing, and reflection here.</p>
         </div>
 
+        <div class="proj-video-container">
+            <iframe src="https://www.youtube.com/embed/qTpIc3vJ3_0" title="Project 9 robotic arm video" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+
+        <div class="proj-code">
+            <h3>Code used on the robot:</h3>
+            <pre><code># Color Sensor: port E
+# Medium Motor: port B
+# Large Motor: port D
+
+from hub import port
+import runloop
+import motor
+import color
+import color_sensor
+
+async def main():
+    # Wait until the Color Sensor detects red.
+    while color_sensor.color(port.E) != color.RED:
+        await runloop.sleep_ms(50)
+
+    # Open the Medium Motor mechanism for 2300 milliseconds.
+    await motor.run_for_time(port.B, 2300, -222)
+
+    # Turn the Large Motor backward 90 degrees.
+    await motor.run_for_degrees(port.D, -90, 20)
+
+    # Close the mechanism by running the Medium Motor the opposite way.
+    await motor.run_for_time(port.B, 2300, 222)
+
+    # Turn the Large Motor forward 180 degrees.
+    await motor.run_for_degrees(port.D, 180, 20)
+
+    # Open the Medium Motor mechanism.
+    await motor.run_for_time(port.B, 2300, -222)
+
+    # Turn the Large Motor backward 90 degrees.
+    await motor.run_for_degrees(port.D, -90, 20)
+
+    # Close the Medium Motor mechanism.
+    await motor.run_for_time(port.B, 2300, 222)
+
+runloop.run(main())</code></pre>
+        </div>
+
     </div>
     <!-- End Project Information -->
 
