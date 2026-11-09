@@ -106,6 +106,28 @@ body {
     margin: auto;
 }
 
+.proj-code-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.proj-code-columns .proj-code {
+    min-width: 0;
+    max-width: none;
+}
+
+.proj-code-columns pre {
+    max-width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+.proj-code-columns pre code {
+    white-space: pre;
+}
+
 .proj-code pre:has(code), pre:has(code) {
     background-color: black;
     color: white;
@@ -187,6 +209,10 @@ pre code, pre code {
 
     .proj-header {
         font-size: 1.3em;
+    }
+
+    .proj-code-columns {
+        grid-template-columns: 1fr;
     }
 
 }
