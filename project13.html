@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Project 13: Title TBD</title>
+    <title>Project 13: 1D Color Search with Reinforcement Learning</title>
     <link rel="stylesheet" href="./project.css">
 </head>
 <body>
@@ -16,31 +16,42 @@
 
         <h1 class="proj-header">Project Portfolio</h1>
 
-        <div class="proj-img-container">
-            <img src="./images/header_1.jpg" alt="Project 13 placeholder hero image">
-        </div>
-
-        <h2 class="proj-header">Project 13: Title TBD</h2>
+        <h2 class="proj-header">Project 13: 1D Color Search with Reinforcement Learning</h2>
 
         <div class="proj-desc">
-            <p>Describe your project goal, design approach, and lessons learned here. Replace this paragraph with your actual summary once the project is complete.</p>
-            <p>Keep the writing specific and accurate to what you built, tested, and observed. Add one or two concrete details that matter to the project.</p>
-        </div>
-
-        <div class="proj-gallery">
-            <img src="./images/header_1.jpg" alt="Project 13 work-in-progress photo placeholder">
-            <img src="./images/header_1.jpg" alt="Project 13 detail photo placeholder">
-            <img src="./images/header_1.jpg" alt="Project 13 final build photo placeholder">
+            <p>These two programs use a LEGO SPIKE Prime color sensor on a motorized arm to scan a row of colored bricks. The <code>read_color.py</code> program checks the sensor readings, while <code>rl_color_search.py</code> uses Q-learning to choose left or right sweeps while searching for a goal color.</p>
         </div>
 
         <div class="proj-video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Project 13 demonstration video" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <iframe src="https://www.youtube.com/embed/I3DVjXNwNos" title="Project 13: 1D Color Search with Reinforcement Learning demonstration" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
 
         <div class="proj-code">
-            <h3>Code:</h3>
-            <pre><code># Add a short code excerpt if this project used programming.
-# Replace this with your actual project code snippet.</code></pre>
+            <h3>Color sensor check (<code>read_color.py</code>)</h3>
+            <pre><code>c = color_sensor.color(COLOR_SENSOR_PORT)
+if c == candidate:
+    count += 1
+else:
+    candidate = c
+    count = 1
+
+if count == CONFIRM_READINGS and c != steady:
+    steady = c
+    report(c)</code></pre>
+        </div>
+
+        <div class="proj-code">
+            <h3>Q-learning update (<code>rl_color_search.py</code>)</h3>
+            <pre><code>def learn(self, state, action, reward, next_state, done):
+    old = self.q[state][action]
+    if done:
+        best_next = 0.0
+    else:
+        best_next = max(self.q[next_state])
+    target = reward + self.gamma * best_next
+    new = old + self.alpha * (target - old)
+    self.q[state][action] = new
+    return old, best_next, new</code></pre>
         </div>
 
     </div>
