@@ -16,10 +16,15 @@
 
         <h1 class="proj-header">Project Portfolio</h1>
 
+        <div class="proj-img-container">
+            <img src="./images/Project13.png" alt="LEGO SPIKE Prime color-search setup with a motorized arm, colored bricks, and a laptop display">
+        </div>
+
         <h2 class="proj-header">Project 13: 1D Color Search with Reinforcement Learning</h2>
 
         <div class="proj-desc">
             <p>These two programs use a LEGO SPIKE Prime color sensor on a motorized arm to scan a row of colored bricks. The <code>read_color.py</code> program checks the sensor readings, while <code>rl_color_search.py</code> uses Q-learning to choose left or right sweeps while searching for a goal color.</p>
+            <p>I trained the robot with repeated Q-learning episodes. Before each episode, I positioned the sensor over a colored brick and chose training mode. The robot then chose whether to sweep left or right. Finding the green goal earned a positive reward of +10, reaching a black boundary earned a negative reward of -10, and each other move received a -1 penalty. After each move, Q-learning updated the value of that direction based on the reward and the next color it sensed. During training, the robot sometimes tried a random direction to explore; in test mode, it used the best direction it had learned so far.</p>
         </div>
 
         <div class="proj-video-container">
